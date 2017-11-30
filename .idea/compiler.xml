@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-api" />
+        <module name="springcloud-consumer-80" />
+        <module name="springcloud-consumer-feign" />
+        <module name="springcloud-consumer-hystrix" />
+        <module name="springcloud-consumer-hystrix-dashboard" />
+        <module name="springcloud-eureka-7001" />
+        <module name="springcloud-eureka-7002" />
+        <module name="springcloud-eureka-7005" />
+        <module name="springcloud-provider-company" />
+        <module name="springcloud-provider-dept-8001" />
+        <module name="springcloud-provider-dept-8002" />
+        <module name="springcloud-provider-dept-8003" />
+        <module name="springcloud-provider-dept-hystrix-8001" />
+        <module name="springcloud-security" />
+        <module name="springcloud-service" />
+        <module name="springcloud-zuul-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud" target="1.5" />
+      <module name="springcloud-api" target="1.5" />
+      <module name="springcloud-consumer-80" target="1.5" />
+      <module name="springcloud-consumer-feign" target="1.5" />
+      <module name="springcloud-consumer-hystrix" target="1.5" />
+      <module name="springcloud-consumer-hystrix-dashboard" target="1.5" />
+      <module name="springcloud-eureka-7001" target="1.5" />
+      <module name="springcloud-eureka-7002" target="1.5" />
+      <module name="springcloud-eureka-7003" target="1.5" />
+      <module name="springcloud-eureka-7005" target="1.5" />
+      <module name="springcloud-provider-company" target="1.5" />
+      <module name="springcloud-provider-dept-8001" target="1.5" />
+      <module name="springcloud-provider-dept-8002" target="1.5" />
+      <module name="springcloud-provider-dept-8003" target="1.5" />
+      <module name="springcloud-provider-dept-hystrix-8001" target="1.5" />
+      <module name="springcloud-security" target="1.5" />
+      <module name="springcloud-service" target="1.5" />
+      <module name="springcloud-turbine" target="1.5" />
+      <module name="springcloud-zuul-gateway" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,35 @@
+server:
+  port: 8003
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  type-aliases-package: com.js.vo            # 定义所有操作类的别名所在包
+  mapper-locations: classpath:mybatis/mapper/**/*.xml                                   # 所有的mapper映射文件
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver      # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/jiashun3           # 数据库连接地址
+    username: root                                  # 数据库用户名
+    password: mysqladmin                            # 数据库连接密码
+    dbcp2:                                          # 进行数据库连接池的配置
+      min-idle: 5                                   # 数据库连接池的最小维持连接数
+      initial-size: 5                               # 初始化提供的连接数
+      max-total: 5                                  # 最大的连接数
+      max-wait-millis: 200                          # 等待连接获取的最大超时时间
+  application:
+    name: springcloud-provider-dept
+eureka:
+  client:   #客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://jiashun:jiashun@eureka-7001.com:7001/eureka,http://jiashun:jiashun@eureka-7002.com:7002/eureka,http://jiashun:jiashun@eureka-7005.com:7005/eureka
+  instance:
+    instance-id: dept-8003.com    #在信息列表显示主机名称
+    prefer-ip-address: true       #访问的路径变为IP地址
+    lease-renewal-interval-in-seconds: 2       #设置心跳的时间间隔（默认30秒）
+    lease-expiration-duration-in-seconds: 5    #如果现在超过了5秒的间隔（默认9 0秒）
+
+info:
+  app.name: js-springcloud
+  company.name: 企业管家
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

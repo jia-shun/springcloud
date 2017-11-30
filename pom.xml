@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.js</groupId>
+  <artifactId>springcloud</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>springcloud-api</module>
+    <module>springcloud-provider-dept-8001</module>
+    <module>springcloud-consumer-80</module>
+    <module>springcloud-eureka-7001</module>
+    <module>springcloud-eureka-7002</module>
+    <module>springcloud-security</module>
+    <module>springcloud-eureka-7005</module>
+    <module>springcloud-provider-dept-8002</module>
+    <module>springcloud-provider-dept-8003</module>
+    <module>springcloud-consumer-feign</module>
+    <module>springcloud-service</module>
+    <module>springcloud-provider-dept-hystrix-8001</module>
+    <module>springcloud-consumer-hystrix</module>
+    <module>springcloud-consumer-hystrix-dashboard</module>
+      <module>springcloud-zuul-gateway</module>
+      <module>springcloud-provider-company</module>
+      <module>springcloud-turbine</module>
+
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>springcloud</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <jdk.version>1.8</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>	<!-- 进行SpringCloud依赖包的导入处理 -->
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Dalston.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>1.5.4.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.js</groupId>
+        <artifactId>springcloud-api</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.js</groupId>
+        <artifactId>springcloud-service</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.js</groupId>
+        <artifactId>springcloud-security</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.0.4</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>1.3.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <finalName>springcloud</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <delimiters>
+            <delimiter>$</delimiter>
+          </delimiters>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

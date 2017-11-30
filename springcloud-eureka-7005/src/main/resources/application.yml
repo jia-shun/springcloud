@@ -1,0 +1,23 @@
+server:
+  port: 7005
+spring:
+  application:
+    name: springcloud-eureka-7005      #定义Eureka实例所在的主机名称
+eureka:
+  #server:
+     #eviction-interval-timer-in-ms: 1000   #设置清理的间隔时间，默认是60秒,一般不建议修改
+     #enable-self-preservation: false     #设置为false表示关闭保护模式，保护模式就是某一个服务不可用了，依然会进行微服务的信息保存。但很多时候Eureka自带有清除过程
+  client:   #客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://jiashun:jiashun@eureka-7001.com:7001/eureka,http://jiashun:jiashun@eureka-7002.com:7002/eureka
+    register-with-eureka: false       #当前的微服务不注册到erueka之中
+    fetch-registry: false       #不同过erueka获取注册信息
+  instance: #eureka实例定义
+    hostname: eureka-7005.com
+security:
+  basic:
+    enabled: true    #启用安全配置
+  user:
+    name: jiashun
+    password: jiashun
+
