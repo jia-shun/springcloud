@@ -23,6 +23,7 @@
       <module>springcloud-zuul-gateway</module>
       <module>springcloud-provider-company</module>
       <module>springcloud-turbine</module>
+      <module>springcloud-config</module>
 
   </modules>
   <packaging>pom</packaging>

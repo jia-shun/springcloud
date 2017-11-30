@@ -1,28 +1,28 @@
-server:
-  port: 9501
-spring:
-  application:
-    name: springcloud-zuul-gateway
-
-eureka:
-  client:   #客户端进行Eureka注册的配置
-    service-url:
-      defaultZone: http://jiashun:jiashun@eureka-7001.com:7001/eureka,http://jiashun:jiashun@eureka-7002.com:7002/eureka,http://jiashun:jiashun@eureka-7005.com:7005/eureka
-  instance:
-    instance-id: gateway.com    #在信息列表显示主机名称
-    prefer-ip-address: true       #访问的路径变为IP地址
-    lease-renewal-interval-in-seconds: 2       #设置心跳的时间间隔（默认30秒）
-    lease-expiration-duration-in-seconds: 5    #如果现在超过了5秒的间隔（默认9 0秒）
-
-info:
-  app.name: js-springcloud
-  company.name: zkak
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
-zuul:
-  routes:
-      springcloud-provider-company: /api-company/**
-      springcloud-provider-dept: /api-dept/**
+#server:
+#  port: 9501
+#spring:
+#  application:
+#    name: springcloud-zuul-gateway
+#
+#eureka:
+#  client:   #客户端进行Eureka注册的配置
+#    service-url:
+#      defaultZone: http://jiashun:jiashun@eureka-7001.com:7001/eureka,http://jiashun:jiashun@eureka-7002.com:7002/eureka,http://jiashun:jiashun@eureka-7005.com:7005/eureka
+#  instance:
+#    instance-id: gateway.com    #在信息列表显示主机名称
+#    prefer-ip-address: true       #访问的路径变为IP地址
+#    lease-renewal-interval-in-seconds: 2       #设置心跳的时间间隔（默认30秒）
+#    lease-expiration-duration-in-seconds: 5    #如果现在超过了5秒的间隔（默认9 0秒）
+#
+#info:
+#  app.name: js-springcloud
+#  company.name: zkak
+#  build.artifactId: $project.artifactId$
+#  build.version: $project.version$
+#zuul:
+#  routes:
+#      springcloud-provider-company: /api-company/**
+#      springcloud-provider-dept: /api-dept/**
 #security:
 #  basic:
 #    enabled: true

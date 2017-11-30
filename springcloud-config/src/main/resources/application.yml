@@ -1,0 +1,10 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: springcloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:jia-shun/springcloud-config.git

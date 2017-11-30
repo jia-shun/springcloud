@@ -1,0 +1,10 @@
+server:
+  port: 9501
+spring:
+  application:
+    name: springcloud-zuul-gateway
+  cloud:
+    config:
+      uri: http://localhost:9090/
+      profile: default
+      label: master
