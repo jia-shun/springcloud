@@ -13,11 +13,11 @@ import java.util.List;
 
 @RestController
 public class ConsumerDeptController {
-    //public static final String DEPT_GET_URL = "http://dept-8001.com:8001/dept/get/";
+//    public static final String DEPT_GET_URL = "http://dept-8001.com:8001/dept/get/";
+//    public static final String DEPT_LIST_URL = "http://dept-8001.com:8001/dept/list/";
+//    public static final String DEPT_ADD_URL = "http://dept-8001.com:8001/dept/add?dname=";
     public static final String DEPT_GET_URL = "http://SPRINGCLOUD-PROVIDER-DEPT/dept/get/";
-    //public static final String DEPT_LIST_URL = "http://dept-8001.com:8001/dept/list/";
     public static final String DEPT_LIST_URL = "http://SPRINGCLOUD-PROVIDER-DEPT/dept/list/";
-    //public static final String DEPT_ADD_URL = "http://dept-8001.com:8001/dept/add?dname=";
     public static final String DEPT_ADD_URL = "http://SPRINGCLOUD-PROVIDER-DEPT/dept/add?dname=";
 
     @Resource

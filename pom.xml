@@ -24,6 +24,7 @@
       <module>springcloud-provider-company</module>
       <module>springcloud-turbine</module>
       <module>springcloud-config</module>
+      <module>springcloud-turbine</module>
 
   </modules>
   <packaging>pom</packaging>

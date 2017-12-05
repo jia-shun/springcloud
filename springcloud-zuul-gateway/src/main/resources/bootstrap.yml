@@ -1,10 +1,18 @@
-server:
-  port: 9501
+eureka:
+  client:   #客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://jiashun:jiashun@eureka-7001.com:7001/eureka,http://jiashun:jiashun@eureka-7002.com:7002/eureka,http://jiashun:jiashun@eureka-7005.com:7005/eureka
+  instance:
+    instance-id: gateway.com    #在信息列表显示主机名称
+    prefer-ip-address: true       #访问的路径变为IP地址
+    lease-renewal-interval-in-seconds: 2       #设置心跳的时间间隔（默认30秒）
+    lease-expiration-duration-in-seconds: 5    #如果现在超过了5秒的间隔（默认9 0秒）
 spring:
-  application:
-    name: springcloud-zuul-gateway
   cloud:
     config:
-      uri: http://localhost:9090/
-      profile: default
-      label: master
+      discovery:
+        service-id: springcloud-config
+        enabled: true
+      label: master  # git 分支
+      name: gate
+      profile: dev
