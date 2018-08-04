@@ -1,9 +1,9 @@
-#SpringCloud是什么？能解决什么问题？
+# SpringCloud是什么？能解决什么问题？
 > 当我们只是一个单体服务的时候，我们自然不用考虑SpringCloud。但是随着业务体量的不断变大，一些高并发情况的出现，发现单体服务已经不能满足我们的需求。这个时候我们考虑将服务进行拆分，拆分成很多的微服务，慢慢的，微服务会越来越多，几十个甚至几百个，这就给运维人员和开发人员带来了很大的挑战。怎么样有效的更好的将这些微服务管理起来呢？这个时候就出现了很多优秀的rpc框架，其中开源框架中最成熟，功能最强大的就是SpringCloud。
 基本上SpringCloud的核心包括Eureka注册中心，Ribbon负载均衡，Feign伪装接口，Hystrix断路器，服务降级，Zuul路由，Config文件统一配置管理等。也就是说SpringCloud本身并不是一项具体的技术，它是将这些技术整合起来，形成一套框架集合。
 **就是SpringCloud。**
 
-#SpringBoot
+# SpringBoot
 Springcloud为父pom项目，为了方便创建了三个子模块。项目中有一张部门（Dept），其中loc保存的数据库的名字。provider-dept-8001为微服务提供方，有三个接口服务：get(),list(),add()。测试：http://dept-8001.com:8001/dept/get/1。
 consumer-80为服务消费方。启动80消费方，测试：http://client.com:8080/consumer/dept/list 
 此时证明我们的服务是没有问题的。
@@ -74,10 +74,10 @@ Ribbon是一个服务调用组件，并且是一个客户端实现负载均衡�
 3：在service建立一个IDeptClientService接口，还是原来我们的三个方法。
 4：在consumer-feign上我们就可以不用原来的RestTemelate进行Rest数据调用，而直接用我们最熟悉的接口就可以了。（有一点要注意，在启动类上要加上Feign的注解@EnableFeignClients）
 5：随后测试：使用feign消费端访问：http://client.com:8080/consumer/dept/list/。可以发现同样可以访问到数据并且自带负载均衡。
-总结：
-还可以使用Feign进行配置文件的修改实现Rest数据的压缩，Feign最核心的作用是将Rest服务的信息转换为接口，并且自动实现负载均衡。所有Feign=RestTemplate+HttpHeader+Ribbon的综合体。
+**总结：
+还可以使用Feign进行配置文件的修改实现Rest数据的压缩，Feign最核心的作用是将Rest服务的信息转换为接口，并且自动实现负载均衡。所有Feign=RestTemplate+HttpHeader+Ribbon的综合体。**
 
-##Hystrix熔断机制
+## Hystrix熔断机制
 一：断路器
 所谓的熔断机制就是指当我们的服务提供方出现了问题之后整个程序出现的信息显示，不要是默认的白板信息：错误，500之类的，而是替换为我们希望为用户展现的页面。
 
@@ -101,7 +101,7 @@ Ribbon是一个服务调用组件，并且是一个客户端实现负载均衡�
 2：配置端口：9001，创建一个监控主类。此时服务运行地址：dashboard.com:9001/hystrix，会看到爆炸熊监控页面。
 3：如果要想查看微服务的监控信息，可以浏览：http://jiashun:jiashun@dept-8001.com:8001/hystrix.stream ，但是这个页面监控谁也看不懂，看懂了也累。所以可以将监控微服务的地址输入到爆炸熊页面查看。此时我们访问http://client.com:8080/consumer/dept/get?id=1 调用服务在监控页面就可以看到监控信息。
 
-##Zuul路由访问：
+## Zuul路由访问：
 路由是微服务架构不可或缺的一部分。
 到现在为止，所有的微服务都是通过Eureka完成，但是在很多的开发之中，为了规范，提供有一个路由的处理控制组件：Zuul。
 也就是Zuul大部分时间只作为中间的一个代理层出现。例如：”/” 可能映射到你应用主页，/api/users映射到用户服务，/api/device映射到设备服务。
@@ -113,7 +113,7 @@ Ribbon是一个服务调用组件，并且是一个客户端实现负载均衡�
 此时我们继续追加dept微服务的路由配置springcloud-provider-dept: /api-dept/** 。但是此刻有一个问题，dpet微服务是有密码的。此时我们访问http://gateway.com:9501/api-dept/dept/get/1 发现输入正确密码依旧不能访问。因为此刻路由是只能代理地址，但是它不能讲用户名密码等信息传递到我们微服务的。所以我们应该怎么操作呢？通过过滤器的方式将密码传递过去。此时重启再访问发现可以正常访问了。
 考虑到zuul也需要安全访问呢。这时添加spring-boot-starter-security的依赖，配置application文件即可。
 
-##分布式配置中心：Spring Cloud Config
+## 分布式配置中心：Spring Cloud Config
 在操作中发现，我们的配置文件有大量的重复，这个时候可以考虑将配置文件做成一个配置中心，服务从配置中心读取文件，配置中从远程Git读取配置文件，当服务很多时，都需要同时从配置中心读取文件的时候，可以考虑将配置中心做成一个单独的微服务。
 1：首先我们准备一个Git仓库，比如本文准备的仓库示例：https://github.com/jia-shun/springcloud-config。在仓库中添加我们的配置文件，比如我添加了一个application.yml 和 ReadMe的文件。
 2：创建一个springcloud-config的项目，这个项目非常简单。在pom添加依赖spirng-cloud-config-server。
